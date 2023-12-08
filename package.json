@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@modular-forms/solid": "^0.20.0",
     "solid-js": "^1.8.5"
   },
   "devDependencies": {
