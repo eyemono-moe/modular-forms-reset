@@ -18,6 +18,8 @@ function App() {
       password: "initial password",
     },
   });
+
+  // hide password by default
   const [showPassword, setShowPassword] = createSignal(false);
 
   const handleSubmit: SubmitHandler<LoginForm> = (values) => {
@@ -25,7 +27,12 @@ function App() {
   };
 
   const handleReset = () => {
-    reset(loginForm);
+    reset(loginForm, {
+      initialValues: {
+        email: "reset email",
+        password: "reset password",
+      },
+    });
   };
 
   return (
@@ -68,11 +75,11 @@ function App() {
 
       <pre>
         <code>
-          {JSON.stringify(
+          {`getValues(loginForm, { shouldActive: false }) = ${JSON.stringify(
             getValues(loginForm, { shouldActive: false }),
             null,
             2
-          )}
+          )}`}
         </code>
       </pre>
     </>
